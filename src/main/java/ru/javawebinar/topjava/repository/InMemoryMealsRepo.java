@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class InMemoryMealsRepo {
-    List meals = new ArrayList<Meal>();
+    public List meals = new ArrayList<Meal>();
 
     public InMemoryMealsRepo() {
         meals = Arrays.asList(
