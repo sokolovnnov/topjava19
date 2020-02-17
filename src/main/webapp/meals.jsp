@@ -22,7 +22,7 @@
     <tbody>
 
     <c:forEach var="mealTo" items="${requestScope.meals}">
-        <tr style="background-color:${mealTo.excess ? "green" : "red"}">
+        <tr style="background-color:${!mealTo.excess ? "green" : "red"}">
             <td> ${mealTo.dateTime} </td>
             <td> ${mealTo.description} </td>
             <td> ${mealTo.calories} </td>

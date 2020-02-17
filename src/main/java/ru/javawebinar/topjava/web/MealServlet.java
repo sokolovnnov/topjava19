@@ -27,7 +27,8 @@ public class MealServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-         mealsTo = MealsUtil.filteredByStreams(new ArrayList<>(new InMemoryMealsRepo().meals.values()), LocalTime.MIN, LocalTime.MAX, 2000);
+         mealsTo = MealsUtil.filteredByStreams(
+                 new ArrayList<>(new InMemoryMealsRepo().getAll()), LocalTime.MIN, LocalTime.MAX, 2501);
     }
 
     @Override
