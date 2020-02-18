@@ -18,26 +18,19 @@
         <th>Удалить</th>
     </tr>
     </thead>
-
     <tbody>
-
-    <c:forEach var="mealTo" items="${requestScope.meals}">
-        <tr style="background-color:${!mealTo.excess ? "green" : "red"}">
-            <td> ${mealTo.dateTime} </td>
-            <td> ${mealTo.description} </td>
-            <td> ${mealTo.calories} </td>
-            <td><a href="meals?action=update&id=${mealTo.id}">update</a></td>
-            <td><a href="meals?action=delete&id=${mealTo.id}">delete</a></td>
+    <td><a href="meals?action=new">new meal</a></td>
+    <c:forEach var="meal" items="${requestScope.meals}">
+        <tr style="background-color:${!meal.excess ? "green" : "red"}">
+            <td> ${meal.dateTime} </td>
+            <td> ${meal.description} </td>
+            <td> ${meal.calories} </td>
+            <td><a href="meals?action=update&id=${meal.id}">update</a></td>
+            <td><a href="meals?action=delete&id=${meal.id}">delete</a></td>
         </tr>
 
     </c:forEach>
-    <td><a href="meals?action=new">new meal</a></td>
-    <td>
 
-    <form action="${pageContext.request.contextPath}/meals" method="post">
-        <input type="submit" name="button" value="new"/>
-    </form>
-    </td>
     </tbody>
 
 </table>

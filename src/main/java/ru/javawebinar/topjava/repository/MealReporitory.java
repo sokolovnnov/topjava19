@@ -13,5 +13,6 @@ public interface MealReporitory {
     Meal update(Meal meal);
     void delete(int id);
     Collection<Meal> getAll();
+    public int getSize();
 //    Collection<Meal> getFilter(LocalDate startDate, LocalDate endDate);
 }

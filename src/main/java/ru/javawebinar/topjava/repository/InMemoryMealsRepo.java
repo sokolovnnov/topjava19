@@ -71,10 +71,23 @@ public class InMemoryMealsRepo implements MealReporitory {
     }
 
     public void delete(int id){
+        log.debug("removing...");
         meals.remove(id);
     }
 
     public Meal update(Meal meal){
-        return meals.computeIfPresent(meal.getId(), (key, value) -> value);
+        log.debug("updating... " + meal.getId());
+        log.debug("updating... " + meal.getCalories());
+        Meal m1 = meals.computeIfPresent(meal.getId(), (key, value) -> {
+            log.debug(key + " - id");
+            log.debug(value.getCalories() + " - calorires");
+            return meal;});
+        //return meals.computeIfPresent(meal.getId(), (key, value) -> value);
+        log.debug(m1.getCalories() + "");
+        return m1;
+    }
+
+    public int getSize(){
+        return meals.size();
     }
 }
