@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.List;
 
 public interface MealReporitory {
-    Meal create(LocalDateTime dateTime, String description, int calories);
+    Meal create(Meal meal);
     Meal get(int id);
     Meal update(Meal meal);
     void delete(int id);

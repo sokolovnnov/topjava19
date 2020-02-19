@@ -65,8 +65,8 @@ public class InMemoryMealsRepo implements MealReporitory {
         return null;
     }*/
 
-    public Meal create(LocalDateTime dateTime, String description, int calories){
-        Meal newMeal = new Meal(id.incrementAndGet(), dateTime, description, calories);
+    public Meal create(Meal meal){
+        Meal newMeal = new Meal(id.incrementAndGet(), meal.getDateTime(), meal.getDescription(), meal.getCalories());
         return meals.put(newMeal.getId(), newMeal);
     }
 

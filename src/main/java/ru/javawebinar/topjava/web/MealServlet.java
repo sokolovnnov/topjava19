@@ -37,8 +37,17 @@ public class MealServlet extends HttpServlet {
         log.debug("in doPost()");
         request.setCharacterEncoding("UTF-8");
         String id = request.getParameter("id");
-        if (id == null){}
+        if (id == null || id.equals("")){
+            log.debug("in id == null");
+            Meal meal = new Meal(null, LocalDateTime.parse(request.getParameter("dateTime")),
+                    request.getParameter("description"),
+                    Integer.parseInt(request.getParameter("calories")));
+            repo.create(meal);
+
+        }
         else {
+            log.debug("in id != null, id = " + id );
+
             Meal meal = new Meal(Integer.parseInt(request.getParameter("id")),
                     LocalDateTime.parse(request.getParameter("dateTime")),
                     request.getParameter("description"),
@@ -71,6 +80,8 @@ public class MealServlet extends HttpServlet {
                 log.debug("redirect to createmeal.jsp");
 
                 //todo
+                Meal meal = new Meal(null, LocalDateTime.now(), "", 0);
+                req.setAttribute("meal", meal);
                 req.getRequestDispatcher("/createmeal.jsp").forward(req, resp);
                 break;
             }
